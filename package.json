@@ -1,0 +1,35 @@
+{
+  "name": "game-of-life",
+  "version": "0.0.0",
+  "author": "SKCrawford",
+  "description": "Conway's Game of Life Simulator",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "yarn ts-node index.ts",
+    "test": "echo \"Tests not yet set up\""
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "keywords": [
+    "conway's",
+    "game",
+    "of",
+    "life",
+    "conway"
+  ],
+  "homepage": "https://github.com/SKCrawford/game-of-life-express#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKCrawford/game-of-life-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SKCrawford/game-of-life-express/issues"
+  }
+}
