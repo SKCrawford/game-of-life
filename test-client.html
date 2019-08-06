@@ -18,7 +18,8 @@
       }
       socket.on('init', id => {
         console.log(`ID: ${id}`);
-        socket.emit(id, dto)
+        socket.emit(id, dto);
+        socket.on(id, console.log);
       })
     </script>
   </head>

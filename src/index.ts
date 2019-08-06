@@ -1,5 +1,5 @@
 import { createServer } from './server';
-// import { evolve } from './evolve';
+import { evolve } from './evolve';
 
 async function main() {
   const io = createServer();
@@ -10,13 +10,13 @@ async function main() {
     const id = socket.id;
     socket.emit('init', id);
 
-    socket.on(id, dto => {
+    socket.on(id, (dto, fn) => {
       console.log(id, dto);
-      // const evolutions = evolve(dto.seed);
-      // setInterval(() => {
-      //   const grid = evolutions.next().value;
-      //   socket.emit(id, grid);
-      // }, dto.delay)
+      const evolutions = evolve(dto.seed);
+      setInterval(() => {
+        const grid = evolutions.next().value;
+        socket.emit(id, grid);
+      }, dto.delay)
     });
   });
 }
