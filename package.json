@@ -6,14 +6,16 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "yarn ts-node index.ts",
+    "start": "yarn ts-node src/index.ts",
     "test": "echo \"Tests not yet set up\""
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.0",
+    "@types/socket.io": "^2.1.2",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   },
