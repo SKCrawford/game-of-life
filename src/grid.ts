@@ -26,7 +26,7 @@ export function getNeighbors(x: number, y: number, grid: Grid): Coordinate[] {
   return neighbors;
 }
 
-function toToroidal(height: number, width: number) {
+export function toToroidal(height: number, width: number) {
   return (x: number, y: number): Coordinate => ({
     x: modulo(x, width),
     y: modulo(y, height),
