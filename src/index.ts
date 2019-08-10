@@ -1,5 +1,5 @@
 import { createServer } from './server';
-import { evolve } from './evolve';
+import { EvolutionService } from './evolve';
 
 async function main() {
   const io = createServer();
@@ -11,8 +11,10 @@ async function main() {
     socket.emit('init', id);
 
     socket.on(id, (dto, fn) => {
+      const service = new EvolutionService();
       console.log(id, dto);
-      const evolutions = evolve(dto.seed);
+
+      const evolutions = service.evolve(dto.seed);
       setInterval(() => {
         const grid = evolutions.next().value;
         socket.emit(id, grid);
