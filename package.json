@@ -7,6 +7,7 @@
   "main": "index.js",
   "scripts": {
     "start": "yarn ts-node src/index.ts",
+    "start:log": "yarn start > all.log 2>&1",
     "test": "yarn jest"
   },
   "dependencies": {
