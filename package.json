@@ -1,6 +1,6 @@
 {
   "name": "game-of-life",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "SKCrawford",
   "description": "Conway's Game of Life Simulator",
   "license": "MIT",
