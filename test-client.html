@@ -5,6 +5,12 @@
     <title>Test</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script>
+      /* Pretty print grid of booleans. */
+      function pretty(grid) {
+        return grid.map(row => row.map(val => val ? 'X': 'O'));
+      }
+
+      // Prepare the socket and test grid
 			const socket = io('http://localhost:8000');
       const dto = {
         seed: [
@@ -16,10 +22,19 @@
         ],
         delay: 2000,
       }
+
+      // Request the unique ID so that grids are not sent to each client
       socket.on('init', id => {
         console.log(`ID: ${id}`);
+
+        // Seed the test grid
         socket.emit(id, dto);
-        socket.on(id, console.log);
+
+        // Print the grid's evolutions
+        socket.on(id, payload => {
+          console.log('Tick:', payload.tick);
+          pretty(payload.grid).map(console.log);
+        });
       })
     </script>
   </head>
