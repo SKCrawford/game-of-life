@@ -1,3 +1,5 @@
+import { Socket } from 'socket.io';
+
 import { createServer } from './server';
 import { EvolutionService } from './evolve';
 import { Logger } from './logger';
@@ -10,7 +12,7 @@ async function main() {
   io.listen(port);
   logger.info(`Started server on port ${port}`);
 
-  io.on('connection', socket => {
+  io.on('connection', (socket: Socket) => {
     logger.debug('Connected');
     const service = new EvolutionService(); // One client, one service
     let timerId: NodeJS.Timeout;

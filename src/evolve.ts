@@ -1,4 +1,4 @@
-import { Cell, Coordinate, Grid, getNeighbors } from './grid';
+import { Cell, Grid, getNeighbors } from './grid';
 
 export class EvolutionService {
   public* evolve(seed: Grid): IterableIterator<Grid> {
