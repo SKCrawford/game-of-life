@@ -1,5 +1,3 @@
-import { EvolutionService } from './evolve';
-
 import { getNeighbors, toToroidal } from './grid';
 
 describe('grid', () => {

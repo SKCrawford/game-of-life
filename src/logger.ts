@@ -38,7 +38,7 @@ export class Logger {
   public warn(...args: any[]) {
     if (this.level >= LogLevels.Warn) {
       const msg = chalk.yellow('WRN', this.prefix, ...args)
-      console.warn();
+      console.warn(msg);
     }
   }
 
