@@ -1,7 +1,7 @@
-import { EvolutionService } from './evolve';
+import * as service from './evolve';
 
 describe('EvolutionService', () => {
-  let service: EvolutionService;
+  // let service: EvolutionService;
   const mock = [
     [false, false, false, false, false],
     [false, false, false, false, false],
@@ -10,9 +10,9 @@ describe('EvolutionService', () => {
     [false, false, false, false, false],
   ];
 
-  beforeEach(() => {
-    service = new EvolutionService();
-  })
+  // beforeEach(() => {
+  //   service = new EvolutionService();
+  // })
 
   it('should be defined', () => {
     expect(service).toBeDefined();
