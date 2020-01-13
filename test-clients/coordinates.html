@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script>
+      // Prepare the socket and test grid
+      const socket = io('http://localhost:8000');
+      const dto = {
+        seed: [
+	  { x: 1, y: 2 },
+	  { x: 2, y: 2 },
+	  { x: 3, y: 2 },
+        ],
+        height: 5,
+        width: 5,
+        delay: 2000,
+      }
+
+      // Request the unique ID so that grids are not sent to each client
+      socket.on('init', id => {
+        console.log(`ID: ${id}`);
+
+        // Seed the test grid
+        socket.emit(`${id}:coordinates`, dto);
+
+        // Print the grid's evolutions
+        socket.on(`${id}:coordinates`, payload => {
+	  console.log('Tick:', payload.tick);
+	  console.log(payload.coordinates);
+        });
+      })
+    </script>
+  </head>
+</html>

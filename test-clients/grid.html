@@ -28,12 +28,12 @@
         console.log(`ID: ${id}`);
 
         // Seed the test grid
-        socket.emit(id, dto);
+        socket.emit(`${id}:grid`, dto);
 
         // Print the grid's evolutions
-        socket.on(id, payload => {
-          console.log('Tick:', payload.tick);
-          pretty(payload.grid).map(console.log);
+        socket.on(`${id}:grid`, payload => {
+	  console.log('Tick:', payload.tick);
+	  pretty(payload.grid).map(console.log);
         });
       })
     </script>
