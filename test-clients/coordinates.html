@@ -9,14 +9,14 @@
       const socket = io('http://localhost:8000');
       const dto = {
         seed: [
-	  { x: 1, y: 2 },
-	  { x: 2, y: 2 },
-	  { x: 3, y: 2 },
+          { x: 1, y: 2 },
+          { x: 2, y: 2 },
+          { x: 3, y: 2 },
         ],
         height: 5,
         width: 5,
         delay: 2000,
-      }
+      };
 
       // Request the unique ID so that grids are not sent to each client
       socket.on('init', id => {
@@ -27,10 +27,10 @@
 
         // Print the grid's evolutions
         socket.on(`${id}:coordinates`, payload => {
-	  console.log('Tick:', payload.tick);
-	  console.log(payload.coordinates);
+          console.log('Tick:', payload.tick);
+          console.log(payload.coordinates);
         });
-      })
+      });
     </script>
   </head>
 </html>

@@ -11,7 +11,7 @@
       }
 
       // Prepare the socket and test grid
-			const socket = io('http://localhost:8000');
+      const socket = io('http://localhost:8000');
       const dto = {
         seed: [
           [false, false, false, false, false],
@@ -21,7 +21,7 @@
           [false, false, false, false, false],
         ],
         delay: 2000,
-      }
+      };
 
       // Request the unique ID so that grids are not sent to each client
       socket.on('init', id => {
@@ -35,7 +35,7 @@
 	  console.log('Tick:', payload.tick);
 	  pretty(payload.grid).map(console.log);
         });
-      })
+      });
     </script>
   </head>
 </html>

@@ -56,4 +56,12 @@ export class Logger {
       console.info(chalk.green(...prettyrow))
     })
   }
+
+  /** A convenient method for logging each tick and its corresponding grid evolution. */
+  public logGridEvolution<T>(grid: T[][], tick: number, socketId: string) {
+    this.info(`ID: ${socketId}`);
+    this.info(`Tick: ${tick}`);
+    this.info('Grid:');
+    this.grid(grid);
+  }
 }
