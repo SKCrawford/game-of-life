@@ -13,21 +13,21 @@
       // Prepare the socket and test grid
       const socket = io('http://localhost:8000');
       const dto = {
-        seed: [
-          [false, false, false, false, false],
-          [false, false, false, false, false],
-          [false,  true,  true,  true, false],
-          [false, false, false, false, false],
-          [false, false, false, false, false],
-        ],
+        // seed: [
+        //   [false, false, false, false, false],
+        //   [false, false, false, false, false],
+        //   [false,  true,  true,  true, false],
+        //   [false, false, false, false, false],
+        //   [false, false, false, false, false],
+        // ],
         delay: 2000,
       };
 
       socket.on('id', console.log);
 
-      socket.emit('grid', dto);
+      socket.emit('seed', dto);
 		
-      socket.on('grid', payload => {
+      socket.on('evolve', payload => {
         console.log('Tick', payload.tick);
         pretty(payload.grid).map(console.log);
       });
