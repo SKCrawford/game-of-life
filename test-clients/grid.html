@@ -23,18 +23,13 @@
         delay: 2000,
       };
 
-      // Request the unique ID so that grids are not sent to each client
-      socket.on('init', id => {
-        console.log(`ID: ${id}`);
+      socket.on('id', console.log);
 
-        // Seed the test grid
-        socket.emit(`${id}:grid`, dto);
-
-        // Print the grid's evolutions
-        socket.on(`${id}:grid`, payload => {
-	  console.log('Tick:', payload.tick);
-	  pretty(payload.grid).map(console.log);
-        });
+      socket.emit('grid', dto);
+		
+      socket.on('grid', payload => {
+        console.log('Tick', payload.tick);
+        pretty(payload.grid).map(console.log);
       });
     </script>
   </head>

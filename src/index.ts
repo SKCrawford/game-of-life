@@ -2,7 +2,6 @@ import { Socket } from 'socket.io';
 
 import { createServer } from './server';
 import { evolve } from './evolve';
-// import { coordinatesToGrid, gridToCoordinates } from './grid';
 import { Logger } from './logger';
 
 async function main() {
