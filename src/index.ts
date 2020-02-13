@@ -19,15 +19,16 @@ async function main() {
     socket.emit('id', socketId);
 
     socket.on('seed', dto => {
+      let validated;
       try {
-        validateDto(dto);
+        validated = validateDto(dto);
       } catch (err) {
         logger.error(err);
         return;
       }
 
       let tick = 0;
-      const evolutions = evolve(dto.seed);
+      const evolutions = evolve(validated.seed);
 
       timerId = setInterval(() => {
         tick++;
@@ -35,7 +36,7 @@ async function main() {
         logger.logGridEvolution(grid, tick, socketId);
 
         socket.emit('evolve', { tick, grid });
-      }, dto.delay)
+      }, validated.delay)
     });
 
     // Clean up by stopping the loop when the client disconnects
