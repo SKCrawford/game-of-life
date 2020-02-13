@@ -7,7 +7,7 @@ import { validateDto } from './dto';
 
 async function main() {
   const io = createServer();
-  const port = 8000;
+  const port = process.env.PORT || 8000;
   io.listen(port);
 
   const logger = new Logger(main.name);
